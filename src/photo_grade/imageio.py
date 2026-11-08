@@ -76,6 +76,13 @@ def load_rgb(path, max_side: int | None = None) -> np.ndarray:
     return arr
 
 
+def _umask() -> int:
+    """The process umask (reading it requires setting it, so it is restored at once)."""
+    mask = os.umask(0o022)
+    os.umask(mask)
+    return mask
+
+
 def save_image_jpeg(im: Image.Image, path, quality: int = 95) -> Path:
     """Write a JPEG with an sRGB profile and no EXIF, atomically: to a temporary file in the same folder, then renamed
     over the destination. A crash never leaves a half-written file, and renaming replaces the directory entry rather
@@ -85,6 +92,7 @@ def save_image_jpeg(im: Image.Image, path, quality: int = 95) -> Path:
     fd, tmp = tempfile.mkstemp(dir=out.parent, prefix=f".{out.stem}.", suffix=".part.jpg")
     os.close(fd)
     try:
+        os.chmod(tmp, 0o666 & ~_umask())  # mkstemp makes the file private (0600); outputs get normal permissions
         im.save(tmp, "JPEG", quality=quality, icc_profile=_SRGB)
         os.replace(tmp, out)
     except BaseException:
