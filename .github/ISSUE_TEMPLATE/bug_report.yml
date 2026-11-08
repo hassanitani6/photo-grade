@@ -1,0 +1,38 @@
+name: Bug report
+description: A grade looks wrong, a photo won't read, or the tool crashes.
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before you file:** issues are public. Photos you attach keep their own metadata (location, camera,
+        date) and may show people — attach only test photos you're happy to make public.
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Environment (`photo-grade doctor` output)
+      description: Run `photo-grade doctor` and paste the result. Check it first; it should not contain personal details.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: The exact error, or what looks wrong in the graded photo.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The command you ran and your settings file, if any.
+      placeholder: photo-grade beach.jpg --preset punchy
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true

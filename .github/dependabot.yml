@@ -1,0 +1,17 @@
+# Proposes pull requests when pinned GitHub Actions or Python dependencies publish new versions.
+# Nothing merges automatically; review the release notes first.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 14
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 14
+    open-pull-requests-limit: 3

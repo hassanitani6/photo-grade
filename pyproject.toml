@@ -1,0 +1,33 @@
+[project]
+name = "photo-grade"
+version = "0.1.0"
+description = "Natural, punchy or bold colour grades for photos from the command line: dehaze, curves, HSL, colour wheels, skin-aware."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "opencv-python-headless>=4.8",
+    "pillow>=13.0",
+    # Decode-only HEIC support (no bundled encoder).
+    "pi-heif>=1.0",
+]
+keywords = ["photography", "colour-grading", "color-grading", "image-processing", "heic", "cli"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Multimedia :: Graphics"]
+
+[project.scripts]
+photo-grade = "photo_grade.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "pillow-heif>=1.0"]  # pillow-heif: writes HEIC test files only
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/photo_grade"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

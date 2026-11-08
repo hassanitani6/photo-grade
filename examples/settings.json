@@ -1,0 +1,14 @@
+{
+  "preset": "punchy",
+  "look": {
+    "vibrance": 0.25,
+    "hsl": {"blue": {"s": 0.05, "l": -0.08}}
+  },
+  "finish": {
+    "exposure": 0.15,
+    "vignette": 0.2
+  },
+  "regions": {
+    "sky": {"contrast": 0.1, "blue_sat": 1.1}
+  }
+}
