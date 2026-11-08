@@ -1,4 +1,4 @@
-"""Task W: dehaze, tone curve, HSL, colour-grading wheels, texture, local light, strength presets and the
+"""Dehaze, tone curve, HSL, colour-grading wheels, texture, local light, strength presets and the
 strength sheet."""
 
 import colorsys

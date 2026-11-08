@@ -82,7 +82,7 @@ reported in plain English.
   from a 16-bit original. RAW camera files are not supported.
 - HEIC support comes from pre-built `pi-heif` packages; on platforms without one (for example Windows on ARM) HEIC
   photos may not open — `photo-grade doctor` shows whether they do.
-- Speed: about 10 s per 24-megapixel photo with a preset, 2 s without (measured on an Apple M5; other machines vary).
+- Speed: about 10 s per 24-megapixel photo with a preset, 2 s without (measured on a recent laptop; other machines vary).
 - The presets were tuned on sunny photos. On a white, overcast sky, `punchy` and `bold` add a cream cast (from their
   warm highlight colour wheel); use `natural`, or lower `grade.highlights.sat` in a settings file.
 - Region masks are found by colour and position, so an orange car can pick up a "sand" look. Use region looks

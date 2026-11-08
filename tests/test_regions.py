@@ -1,4 +1,4 @@
-"""Subject-aware grading: region masks, region looks and person enhancement (Task G)."""
+"""Subject-aware grading: region masks, region looks and person enhancement."""
 
 import colorsys
 
@@ -225,9 +225,6 @@ def test_person_and_region_validation():
     assert regions.region_errors({"sky": {"saturation": 2}})
     assert regions.region_errors({"sky": 1})
     assert regions.region_errors([])
-
-EMB = [1.0] + [0.0] * 511
-
 
 def _eye_polys(cx, cy, w=14, h=6):
     def one(x):
