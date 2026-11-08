@@ -1,6 +1,6 @@
 [project]
 name = "photo-grade"
-version = "0.1.0"
+version = "0.1.1"
 description = "Natural, punchy or bold colour grades for photos from the command line: dehaze, curves, HSL, colour wheels, skin-aware."
 readme = "README.md"
 license = "MIT"
