@@ -105,7 +105,7 @@ VIGNETTE_PER_UNIT = (math.pi / 7) / 0.6
 # so it survives a later downscale (e.g. to a 1080-px social post) instead of averaging away.
 GRAIN_SIGMA = 3.0 / 255
 GRAIN_GRID = 1600
-GRAIN_SEED = 20261030  # used when apply isn't told which photo it's grading
+GRAIN_SEED = 7919  # used when apply isn't told which photo it's grading
 
 
 class GradeError(Exception):
@@ -204,7 +204,7 @@ def _vignette(x: np.ndarray, v: float) -> None:
 
 
 def _grain(x: np.ndarray, g: float, seed: int) -> None:
-    """Monochrome, seeded per photo (same photo, same grain, so the cache stays valid)."""
+    """Monochrome, seeded per photo, so the same photo always gets the same grain."""
     h, w = x.shape[:2]
     k = max(1.0, max(h, w) / GRAIN_GRID)
     gh, gw = max(1, round(h / k)), max(1, round(w / k))
